@@ -24,6 +24,8 @@ The project also demonstrates practical PowerShell concepts such as cmdlets, fun
 * **Report Generation** — Generates structured audit results in formats such as HTML, JSON, or CSV.
 
 ## project structure 
+
+```text
 PowerSentryX/
 │
 ├── PowerSentryX.ps1
@@ -93,3 +95,5 @@ PowerSentryX/
 ├── README.md
 ├── LICENSE
 └── .gitignore
+
+```
