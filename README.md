@@ -98,3 +98,4 @@ PowerSentryX/
 
 ```
 # we need to make uml for been more strucutre 
+# this for second commit 
