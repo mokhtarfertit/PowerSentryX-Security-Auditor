@@ -97,3 +97,4 @@ PowerSentryX/
 └── .gitignore
 
 ```
+# we need to make uml for been more strucutre 
