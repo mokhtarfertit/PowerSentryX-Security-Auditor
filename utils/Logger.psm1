@@ -6,6 +6,8 @@ function Write-PowerSentryXLog {
         [string]$Message,
 
         [ValidateSet('INFO', 'WARNING', 'ERROR')]
+        [string]$Level = 'INFO',
+        
         [string]$LogPath = (
             Join-Path `
                 -Path $PSScriptRoot `
@@ -21,7 +23,7 @@ function Write-PowerSentryXLog {
     }
 
     $timestamp = (Get-Date).ToUniversalTime().ToString('o')
-    $logEntry = "$timestamp [$level] $Message"
+    $logEntry = "$timestamp [$Level] $Message"
 
     Add-Content -LiteralPath $LogPath -Value $logEntry -Encoding UTF8
 }
