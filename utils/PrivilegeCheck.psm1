@@ -1,4 +1,4 @@
-function Test-PowerSentrXAdminstrator {
+function Test-PowerSentryXAdministrator {
     [CmdletBinding()]
     param ()
 
@@ -19,4 +19,4 @@ function Test-PowerSentrXAdminstrator {
     }
 }
 
-Export-ModuleMember -Function Test-PowerSentryXAdminstrator
+Export-ModuleMember -Function Test-PowerSentryXAdministrator

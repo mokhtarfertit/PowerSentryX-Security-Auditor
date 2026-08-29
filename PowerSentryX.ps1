@@ -10,7 +10,7 @@ Set-StrictMode -Version Latest
 
 $modulePaths = @(
     'utils/Helpers.psm1'
-    'utils/PrivilegCheck.psm1'
+    'utils/PrivilegeCheck.psm1'
     'utils/Logger.psm1'
 )
 
@@ -23,14 +23,14 @@ foreach ($modulePath in $modulePaths) {
 $settings = Get-PowerSentryXSettings `
     -Path $ConfigPath `
     -ErrorAction stop 
-$isAdministrator = Test-PowerSentryXAdminstrator
+$isAdministrator = Test-PowerSentryXAdministrator
 
 $runId = [guid]::NewGuid().ToString()
 $startedAtUtc = (Get-Date).ToUniversalTime()
 
 Write-PowerSentryXLog `
     -Message "Audit started . Run ID: $runId" `
-    -Level 'INFO'
+    -Level 'INFO' `
     -ErrorAction Stop
 
 if ($isAdministrator) {
@@ -46,11 +46,11 @@ else {
         -ErrorAction Stop
 }
 
-$runContext = [pscutomobject]@{
+$runContext = [pscustomobject]@{
     RunId = $runId
     starteAtUtc = $startedAtUtc
-    $isAdministrator = $isAdministrator
-    $EnableCollectors = $settings.$EnableCollectors
+    isAdministrator = $isAdministrator
+    EnableCollectors = $settings.EnableCollectors
 }
 
 return $runContext

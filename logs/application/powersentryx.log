@@ -1,2 +1,26 @@
 ﻿2026-08-29T11:28:46.2090183Z [] PowerSEntry started.
 2026-08-29T11:36:34.7360496Z [WARNING] A collector could not not access some infomration.
+2026-08-29T12:12:39.3882824Z [INFO] Audit started . Run ID: cb700bc6-558d-45bd-88b0-1819a307d5f1
+2026-08-29T12:12:39.5080301Z [WARNING] PowerSentryX is not running with administrator privileges. some checks may be unavailable.
+2026-08-29T12:14:50.0506266Z [INFO] Audit started . Run ID: 91d8abb6-aa1d-4e2b-a032-2bc6f147d2c7
+2026-08-29T12:14:50.0948400Z [WARNING] PowerSentryX is not running with administrator privileges. some checks may be unavailable.
+2026-08-29T12:16:06.6980603Z [INFO] Audit started . Run ID: 6c1e979a-e7ee-495a-ac0f-8173da69403d
+2026-08-29T12:16:06.7590048Z [WARNING] PowerSentryX is not running with administrator privileges. some checks may be unavailable.
+2026-08-29T12:17:08.6490240Z [INFO] Audit started . Run ID: 6289fd1d-0c3e-40c4-b222-722133627b19
+2026-08-29T12:17:08.6538873Z [WARNING] PowerSentryX is not running with administrator privileges. some checks may be unavailable.
+2026-08-29T12:17:57.0800681Z [INFO] Audit started . Run ID: cc7a3615-3e71-4bd5-9217-de41164e595f
+2026-08-29T12:17:57.0874340Z [WARNING] PowerSentryX is not running with administrator privileges. some checks may be unavailable.
+2026-08-29T12:18:45.2200548Z [INFO] Audit started . Run ID: f28b38f6-bc0a-4c03-9b6b-b15e5ee4c10d
+2026-08-29T12:18:45.2244671Z [WARNING] PowerSentryX is not running with administrator privileges. some checks may be unavailable.
+2026-08-29T12:18:54.3637652Z [INFO] Audit started . Run ID: df9eaa00-8e94-43c2-a6ea-62db2e810aa3
+2026-08-29T12:18:54.3665079Z [WARNING] PowerSentryX is not running with administrator privileges. some checks may be unavailable.
+2026-08-29T12:20:59.5537299Z [INFO] Audit started . Run ID: 442f042a-32da-4ed2-95fc-cc8103a26716
+2026-08-29T12:20:59.5585345Z [WARNING] PowerSentryX is not running with administrator privileges. some checks may be unavailable.
+2026-08-29T12:21:09.2162564Z [INFO] Audit started . Run ID: f1032807-623e-4c85-bb36-cbe6a1cf446b
+2026-08-29T12:21:09.2198234Z [WARNING] PowerSentryX is not running with administrator privileges. some checks may be unavailable.
+2026-08-29T12:22:00.9094349Z [INFO] Audit started . Run ID: fadbcb4f-42d0-42ef-b6a8-0469353c0ae9
+2026-08-29T12:22:00.9135364Z [WARNING] PowerSentryX is not running with administrator privileges. some checks may be unavailable.
+2026-08-29T12:23:06.7474366Z [INFO] Audit started . Run ID: 55d92cec-7684-46f6-9274-a72f271de34c
+2026-08-29T12:23:06.7500128Z [WARNING] PowerSentryX is not running with administrator privileges. some checks may be unavailable.
+2026-08-29T12:23:44.5694432Z [INFO] Audit started . Run ID: 02de70e8-5c7b-4d9c-ba1b-fdae34a0916b
+2026-08-29T12:23:44.5746081Z [WARNING] PowerSentryX is not running with administrator privileges. some checks may be unavailable.

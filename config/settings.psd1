@@ -1,6 +1,6 @@
 @{
     # Collectors to run during on audit.
-    EnabledCollectors = @(
+    EnableCollectors = @(
         'SystemInfo'
         'Firewall'
     )
