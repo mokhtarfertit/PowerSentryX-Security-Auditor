@@ -1,5 +1,5 @@
-function Invoke-PowerSentryInfoCollector {
-    [cmdletBinding()]
+function Invoke-PowerSentryXSystemInfoCollector {
+    [CmdletBinding()]
     param ()
 
     $collectedAtUtc = (Get-Date).ToUniversalTime()
@@ -8,15 +8,15 @@ function Invoke-PowerSentryInfoCollector {
         $operatingSystem = Get-CimInstance `
             -ClassName Win32_OperatingSystem `
             -ErrorAction Stop
-        
+
         $computerSystem = Get-CimInstance `
-            -ClassName Win32_ComputerSystem
-            -ErrorAction stop
+            -ClassName Win32_ComputerSystem `
+            -ErrorAction Stop
 
         $lastBootTimeUtc = $operatingSystem.LastBootUpTime.ToUniversalTime()
         $uptime = $collectedAtUtc - $lastBootTimeUtc
 
-        $data = [[PSCustomObject]@{
+        $data = [pscustomobject]@{
             ComputerName      = $env:COMPUTERNAME
             OperatingSystem   = $operatingSystem.Caption
             OperatingSystemVersion = $operatingSystem.Version
@@ -25,19 +25,26 @@ function Invoke-PowerSentryInfoCollector {
             Domain            = $computerSystem.Domain
             LastBootTimeUtc   = $lastBootTimeUtc
             Uptime            = $uptime
-        }]
+        }
 
+        return [pscustomobject]@{
+            CollectorId  = 'SystemInfo'
+            CollectedAtUtc = $collectedAtUtc
+            Status       = 'Success'
+            Data         = $data
+            Errors       = @()
+        }
     }
     catch {
-        return [[PSCustomObject]@{
-            CollectorId = 'SystemInfo'
-            collectedAtUtc = $collectedAtUtc
-            Status = 'Error'
-            Data = $null
-            Errors = @(
+        return [pscustomobject]@{
+            CollectorId  = 'SystemInfo'
+            CollectedAtUtc = $collectedAtUtc
+            Status       = 'Error'
+            Data         = $null
+            Errors       = @(
                 $_.Exception.Message
             )
-        }]
+        }
     }
 }
 
