@@ -12,6 +12,8 @@ $modulePaths = @(
     'utils/Helpers.psm1'
     'utils/PrivilegeCheck.psm1'
     'utils/Logger.psm1'
+    'modules/collectors/SystemInfo.psm1'
+    'modules/collectors/Firewall.psm1'
 )
 
 foreach ($modulePath in $modulePaths) {
@@ -51,6 +53,39 @@ $runContext = [pscustomobject]@{
     starteAtUtc = $startedAtUtc
     isAdministrator = $isAdministrator
     EnableCollectors = $settings.EnableCollectors
+}
+
+$collectorResults = @()
+
+foreach ($collectorName in $settings.EnabledCollectors) {
+    switch ($collectorName) {
+        'SystemInfo' {
+            $collectorResult = Invoke-PowerSentryXSystemInfoCollector
+            $collectorResults += $collectorResult
+        }
+
+        'Firewall' {
+            $collectorResult = Invoke-PowerSentryXFirewallCollector
+            $collectorResults += $collectorResult
+        }
+
+        default {
+            Write-PowerSentryXLog `
+                -Message "Unknown collector configured: $collectorName" `
+                -Level 'WARNING' `
+                -ErrorAction Stop
+
+            $collectorResults += [pscustomobject]@{
+                CollectorId    = $collectorName
+                CollectedAtUtc = (Get-Date).ToUniversalTime()
+                Status         = 'Unavailable'
+                Data           = @()
+                Errors         = @(
+                    "No implementation exists for collector '$collectorName'."
+                )
+            }
+        }
+    }
 }
 
 return $runContext
