@@ -14,6 +14,7 @@ $modulePaths = @(
     'utils/Logger.psm1'
     'modules/collectors/SystemInfo.psm1'
     'modules/collectors/Firewall.psm1'
+    'modules/reporting/ReportGenerator.psm1'
 )
 
 foreach ($modulePath in $modulePaths) {
