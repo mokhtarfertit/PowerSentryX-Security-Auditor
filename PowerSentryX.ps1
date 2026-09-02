@@ -55,6 +55,19 @@ $runContext = [pscustomobject]@{
     isAdministrator = $isAdministrator
     EnableCollectors = $settings.EnableCollectors
 }
+$reportDirectory = Join-Path `
+    -Path $PSScriptRoot `
+    -ChildPath $settings.Reporting.OutputDirectory
+
+$reportPath = Write-PowerSentryXJsonReport `
+    -AuditContext $runContext `
+    -OutputDirectory $reportDirectory `
+    -ErrorAction Stop
+
+Write-PowerSentryXLog `
+    -Message "JSON report created: $reportPath" `
+    -Level 'INFO' `
+    -ErrorAction Stop
 
 $collectorResults = @()
 
