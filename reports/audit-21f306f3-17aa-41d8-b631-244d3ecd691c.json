@@ -1,0 +1,84 @@
+﻿{
+    "RunId":  "21f306f3-17aa-41d8-b631-244d3ecd691c",
+    "StartedAtUtc":  "\/Date(1788437621627)\/",
+    "IsAdministrator":  false,
+    "EnabledCollectors":  [
+                              "SystemInfo",
+                              "Firewall"
+                          ],
+    "CollectorResults":  [
+                             {
+                                 "CollectorId":  "SystemInfo",
+                                 "CollectedAtUtc":  "\/Date(1788437621642)\/",
+                                 "Status":  "Success",
+                                 "Data":  {
+                                              "ComputerName":  "DESKTOP-G6HMA1C",
+                                              "OperatingSystem":  "Microsoft Windows 10 Home",
+                                              "OperatingSystemVersion":  "10.0.19045",
+                                              "Architecture":  "64-bit",
+                                              "CurrentUser":  "DESKTOP-G6HMA1C\\mokht",
+                                              "Domain":  "WORKGROUP",
+                                              "LastBootTimeUtc":  "\/Date(1788277011755)\/",
+                                              "Uptime":  {
+                                                             "Ticks":  1606098873902,
+                                                             "Days":  1,
+                                                             "Hours":  20,
+                                                             "Milliseconds":  887,
+                                                             "Minutes":  36,
+                                                             "Seconds":  49,
+                                                             "TotalDays":  1.8589107336828703,
+                                                             "TotalHours":  44.613857608388884,
+                                                             "TotalMilliseconds":  160609887.39020002,
+                                                             "TotalMinutes":  2676.8314565033334,
+                                                             "TotalSeconds":  160609.8873902
+                                                         }
+                                          },
+                                 "Errors":  [
+
+                                            ]
+                             },
+                             {
+                                 "CollectorId":  "Firewall",
+                                 "CollectedAtUtc":  "\/Date(1788437621774)\/",
+                                 "Status":  "Success",
+                                 "Data":  [
+                                              {
+                                                  "ProfileName":  "Domain",
+                                                  "Enabled":  1,
+                                                  "DefaultInboundAction":  0,
+                                                  "DefaultOutboundAction":  0,
+                                                  "AllowInboundRules":  2,
+                                                  "AllowLocalFirewallRules":  2,
+                                                  "NotifyOnListen":  1,
+                                                  "LogFileName":  "%systemroot%\\system32\\LogFiles\\Firewall\\pfirewall.log",
+                                                  "LogMaxSizeKilobytes":  4096
+                                              },
+                                              {
+                                                  "ProfileName":  "Private",
+                                                  "Enabled":  1,
+                                                  "DefaultInboundAction":  0,
+                                                  "DefaultOutboundAction":  0,
+                                                  "AllowInboundRules":  2,
+                                                  "AllowLocalFirewallRules":  2,
+                                                  "NotifyOnListen":  1,
+                                                  "LogFileName":  "%systemroot%\\system32\\LogFiles\\Firewall\\pfirewall.log",
+                                                  "LogMaxSizeKilobytes":  4096
+                                              },
+                                              {
+                                                  "ProfileName":  "Public",
+                                                  "Enabled":  1,
+                                                  "DefaultInboundAction":  0,
+                                                  "DefaultOutboundAction":  0,
+                                                  "AllowInboundRules":  2,
+                                                  "AllowLocalFirewallRules":  2,
+                                                  "NotifyOnListen":  1,
+                                                  "LogFileName":  "%systemroot%\\system32\\LogFiles\\Firewall\\pfirewall.log",
+                                                  "LogMaxSizeKilobytes":  4096
+                                              }
+                                          ],
+                                 "Errors":  [
+
+                                            ]
+                             }
+                         ]
+}

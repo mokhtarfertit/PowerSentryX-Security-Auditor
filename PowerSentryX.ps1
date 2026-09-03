@@ -1,5 +1,4 @@
 [CmdletBinding()]
-
 param (
     [string]$ConfigPath = (
         Join-Path -Path $PSScriptRoot -ChildPath 'config/settings.psd1'
@@ -19,57 +18,28 @@ $modulePaths = @(
 
 foreach ($modulePath in $modulePaths) {
     $fullModulePath = Join-Path -Path $PSScriptRoot -ChildPath $modulePath
-
     Import-Module -Name $fullModulePath -Force -ErrorAction Stop
 }
 
-$settings = Get-PowerSentryXSettings `
-    -Path $ConfigPath `
-    -ErrorAction stop 
+$settings = Get-PowerSentryXSettings -Path $ConfigPath -ErrorAction Stop
+
+if (-not $settings.ContainsKey('EnabledCollectors')) {
+    throw "Configuration is missing the 'EnabledCollectors' setting."
+}
+
 $isAdministrator = Test-PowerSentryXAdministrator
 
 $runId = [guid]::NewGuid().ToString()
 $startedAtUtc = (Get-Date).ToUniversalTime()
 
-Write-PowerSentryXLog `
-    -Message "Audit started . Run ID: $runId" `
-    -Level 'INFO' `
-    -ErrorAction Stop
+Write-PowerSentryXLog -Message "Audit started. Run ID: $runId" -Level 'INFO' -ErrorAction Stop
 
 if ($isAdministrator) {
-    Write-PowerSentryXLog `
-        -Message 'PowerSentry is running with adminstrator privileges.' `
-        -Leve 'INFO' `
-        -ErrorAction stop
+    Write-PowerSentryXLog -Message 'PowerSentryX is running with administrator privileges.' -Level 'INFO' -ErrorAction Stop
 }
 else {
-    Write-PowerSentryXLog `
-        -Message 'PowerSentryX is not running with administrator privileges. some checks may be unavailable.' `
-        -Level 'WARNING' `
-        -ErrorAction Stop
+    Write-PowerSentryXLog -Message 'PowerSentryX is not running with administrator privileges. Some checks may be unavailable.' -Level 'WARNING' -ErrorAction Stop
 }
-
-$runContext = [pscustomobject]@{
-    RunId = $runId
-    starteAtUtc = $startedAtUtc
-    isAdministrator = $isAdministrator
-    EnableCollectors = $settings.EnableCollectors
-    CollectorResults   = $collectorResults
-    ReportPath         = $reportPath
-}
-$reportDirectory = Join-Path `
-    -Path $PSScriptRoot `
-    -ChildPath $settings.Reporting.OutputDirectory
-
-$reportPath = Write-PowerSentryXJsonReport `
-    -AuditContext $runContext `
-    -OutputDirectory $reportDirectory `
-    -ErrorAction Stop
-
-Write-PowerSentryXLog `
-    -Message "JSON report created: $reportPath" `
-    -Level 'INFO' `
-    -ErrorAction Stop
 
 $collectorResults = @()
 
@@ -86,10 +56,7 @@ foreach ($collectorName in $settings.EnabledCollectors) {
         }
 
         default {
-            Write-PowerSentryXLog `
-                -Message "Unknown collector configured: $collectorName" `
-                -Level 'WARNING' `
-                -ErrorAction Stop
+            Write-PowerSentryXLog -Message "Unknown collector configured: $collectorName" -Level 'WARNING' -ErrorAction Stop
 
             $collectorResults += [pscustomobject]@{
                 CollectorId    = $collectorName
@@ -102,6 +69,29 @@ foreach ($collectorName in $settings.EnabledCollectors) {
             }
         }
     }
+}
+
+$runContext = [pscustomobject]@{
+    RunId              = $runId
+    StartedAtUtc       = $startedAtUtc
+    IsAdministrator    = $isAdministrator
+    EnabledCollectors  = $settings.EnabledCollectors
+    CollectorResults   = $collectorResults
+}
+
+$reportDirectory = Join-Path -Path $PSScriptRoot -ChildPath $settings.Reporting.OutputDirectory
+
+$reportPath = Write-PowerSentryXJsonReport -AuditContext $runContext -OutputDirectory $reportDirectory -ErrorAction Stop
+
+Write-PowerSentryXLog -Message "JSON report created: $reportPath" -Level 'INFO' -ErrorAction Stop
+
+$runContext = [pscustomobject]@{
+    RunId              = $runId
+    StartedAtUtc       = $startedAtUtc
+    IsAdministrator    = $isAdministrator
+    EnabledCollectors  = $settings.EnabledCollectors
+    CollectorResults   = $collectorResults
+    ReportPath         = $reportPath
 }
 
 return $runContext
