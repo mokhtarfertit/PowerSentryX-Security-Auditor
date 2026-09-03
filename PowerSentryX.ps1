@@ -54,6 +54,8 @@ $runContext = [pscustomobject]@{
     starteAtUtc = $startedAtUtc
     isAdministrator = $isAdministrator
     EnableCollectors = $settings.EnableCollectors
+    CollectorResults   = $collectorResults
+    ReportPath         = $reportPath
 }
 $reportDirectory = Join-Path `
     -Path $PSScriptRoot `
