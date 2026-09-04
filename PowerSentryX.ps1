@@ -11,8 +11,18 @@ $modulePaths = @(
     'utils/Helpers.psm1'
     'utils/PrivilegeCheck.psm1'
     'utils/Logger.psm1'
+
     'modules/collectors/SystemInfo.psm1'
     'modules/collectors/Firewall.psm1'
+    'modules/collectors/UserAudit.psm1'
+    'modules/collectors/DefenderAudit.psm1'
+    'modules/collectors/NetworkAudit.psm1'
+    'modules/collectors/ProcessAudit.psm1'
+    'modules/collectors/ServiceAudit.psm1'
+    'modules/collectors/ScheduledTaskAudit.psm1'
+    'modules/collectors/SecurityPolicyAudit.psm1'
+
+    'modules/analysis/SecurityAnalyzer.psm1'
     'modules/reporting/ReportGenerator.psm1'
 )
 
@@ -54,6 +64,42 @@ foreach ($collectorName in $settings.EnabledCollectors) {
             $collectorResult = Invoke-PowerSentryXFirewallCollector
             $collectorResults += $collectorResult
         }
+
+        'UserAudit' {
+            $collectorResult = Invoke-PowerSentryXUserAuditCollector
+            $collectorResults += $collectorResult
+        }
+
+        'DefenderAudit' {
+            $collectorResult = Invoke-PowerSentryXDefenderAuditCollector
+            $collectorResults += $collectorResult
+        }
+
+        'NetworkAudit' {
+            $collectorResult = Invoke-PowerSentryXNetworkAuditCollector
+            $collectorResults += $collectorResult
+        }
+
+        'ProcessAudit' {
+            $collectorResult = Invoke-PowerSentryXProcessAuditCollector
+            $collectorResults += $collectorResult
+        }
+
+        'ServiceAudit' {
+            $collectorResult = Invoke-PowerSentryXServiceAuditCollector
+            $collectorResults += $collectorResult
+        }
+
+        'ScheduledTaskAudit' {
+            $collectorResult = Invoke-PowerSentryXScheduledTaskAuditCollector
+            $collectorResults += $collectorResult
+        }
+
+        'SecurityPolicyAudit' {
+            $collectorResult = Invoke-PowerSentryXSecurityPolicyAuditCollector
+            $collectorResults += $collectorResult
+        }
+        
 
         default {
             Write-PowerSentryXLog -Message "Unknown collector configured: $collectorName" -Level 'WARNING' -ErrorAction Stop

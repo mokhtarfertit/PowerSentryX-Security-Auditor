@@ -35,3 +35,6 @@
 2026-09-03T12:13:41.6286321Z [INFO] Audit started. Run ID: 21f306f3-17aa-41d8-b631-244d3ecd691c
 2026-09-03T12:13:41.6318032Z [WARNING] PowerSentryX is not running with administrator privileges. Some checks may be unavailable.
 2026-09-03T12:13:42.1175254Z [INFO] JSON report created: C:\Users\mokht\OneDrive\Desktop\PowerSentryX\PSX\reports\audit-21f306f3-17aa-41d8-b631-244d3ecd691c.json
+2026-09-04T10:21:43.1105299Z [INFO] Audit started. Run ID: 458eb1d7-3596-4bfb-948e-09775430fa34
+2026-09-04T10:21:43.1434192Z [INFO] PowerSentryX is running with administrator privileges.
+2026-09-04T10:22:03.9278116Z [INFO] JSON report created: C:\Users\mokht\OneDrive\Desktop\PowerSentryX\PSX\reports\audit-458eb1d7-3596-4bfb-948e-09775430fa34.json
