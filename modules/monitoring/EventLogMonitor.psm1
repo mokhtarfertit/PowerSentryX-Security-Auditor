@@ -73,3 +73,4 @@ function Invoke-PowerSentryXEventLogMonitor {
 }
 
 Export-ModuleMember -Function Invoke-PowerSentryXEventLogMonitor
+###########
