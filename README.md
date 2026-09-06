@@ -97,8 +97,33 @@ PowerSentryX/
 └── .gitignore
 
 ```
-# we need to make uml for been more strucutre 
-# this for second commit 
-#############################
-############################
-###########################
+## Usage
+
+Run a one-shot read-only audit from the project root:
+
+```powershell
+./PowerSentryX.ps1 -Mode Audit
+```
+
+The command writes a JSON report to `reports/` and returns the collector results and findings. Run PowerShell as administrator when checking Security audit policy, firewall, Defender, or protected Windows resources.
+
+Run monitoring once:
+
+```powershell
+./PowerSentryX.ps1 -Mode Monitor
+```
+
+Monitoring stores its comparison state in `data/snapshots/monitor-state.json`. To run repeated checks, specify an interval and iteration count:
+
+```powershell
+./PowerSentryX.ps1 -Mode Monitor -MonitorIntervalSeconds 60 -Iterations 10
+```
+
+Run the tests with the installed Pester version:
+
+```powershell
+Import-Module Pester
+Invoke-Pester -Path './tests'
+```
+
+Collectors and monitors are read-only. A permission failure is returned as `Error` or `Partial` evidence and is not reported as a successful security check.

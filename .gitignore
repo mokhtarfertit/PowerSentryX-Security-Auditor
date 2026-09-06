@@ -1,0 +1,10 @@
+# Runtime output
+logs/application/*.log
+logs/security/*
+logs/alerts/*
+reports/*.json
+data/snapshots/*.json
+
+# PowerShell transient files
+*.tmp
+*.bak
