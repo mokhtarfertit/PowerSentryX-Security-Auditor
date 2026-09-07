@@ -102,7 +102,7 @@ PowerSentryX/
 Run a one-shot read-only audit from the project root:
 
 ```powershell
-./PowerSentryX.ps1 -Mode Audit
+./launcher/Start-PowerSentryX.ps1 -Mode Audit
 ```
 
 The command writes a JSON report to `reports/` and returns the collector results and findings. Run PowerShell as administrator when checking Security audit policy, firewall, Defender, or protected Windows resources.
@@ -110,13 +110,13 @@ The command writes a JSON report to `reports/` and returns the collector results
 Run monitoring once:
 
 ```powershell
-./PowerSentryX.ps1 -Mode Monitor
+./launcher/Start-PowerSentryX.ps1 -Mode Monitor
 ```
 
 Monitoring stores its comparison state in `data/snapshots/monitor-state.json`. To run repeated checks, specify an interval and iteration count:
 
 ```powershell
-./PowerSentryX.ps1 -Mode Monitor -MonitorIntervalSeconds 60 -Iterations 10
+./launcher/Start-PowerSentryX.ps1 -Mode Monitor -MonitorIntervalSeconds 60 -Iterations 10
 ```
 
 Run the tests with the installed Pester version:

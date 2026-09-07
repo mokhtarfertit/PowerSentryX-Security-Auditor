@@ -54,3 +54,16 @@
 2026-09-06T18:01:38.1302460Z [INFO] Audit started. Run ID: e67d0c86-f1e1-41c9-bacd-17d2d46fe78e
 2026-09-06T18:01:38.1640627Z [WARNING] PowerSentryX is not running with administrator privileges. Some checks may be unavailable.
 2026-09-06T18:01:46.3289219Z [INFO] JSON report created: C:\Users\mokht\OneDrive\Desktop\PowerSentryX\PSX\reports\audit-e67d0c86-f1e1-41c9-bacd-17d2d46fe78e.json
+2026-09-07T18:39:46.6186229Z [INFO] Audit started. Run ID: 804ddca1-a26b-4352-ab53-6de2174014a6
+2026-09-07T18:39:46.6392630Z [WARNING] PowerSentryX is not running with administrator privileges. Some checks may be unavailable.
+2026-09-07T18:40:09.5265544Z [INFO] JSON report created: C:\Users\mokht\OneDrive\Desktop\PowerSentryX\PSX\reports\audit-804ddca1-a26b-4352-ab53-6de2174014a6.json
+2026-09-07T18:43:10.4490338Z [INFO] Audit started. Run ID: f7a691ff-0380-4725-9524-30ea04231199
+2026-09-07T18:43:10.5279185Z [WARNING] PowerSentryX is not running with administrator privileges. Some checks may be unavailable.
+2026-09-07T18:43:24.2582379Z [INFO] JSON report created: C:\Users\mokht\OneDrive\Desktop\PowerSentryX\PSX\reports\audit-f7a691ff-0380-4725-9524-30ea04231199.json
+2026-09-07T18:44:42.0796185Z [INFO] Audit started. Run ID: 56ad5fcd-fef6-4c24-879b-5d6103e18e98
+2026-09-07T18:44:42.0977693Z [WARNING] PowerSentryX is not running with administrator privileges. Some checks may be unavailable.
+2026-09-07T18:44:53.3154476Z [INFO] JSON report created: C:\Users\mokht\OneDrive\Desktop\PowerSentryX\PSX\reports\audit-56ad5fcd-fef6-4c24-879b-5d6103e18e98.json
+2026-09-07T18:45:17.4178430Z [INFO] Monitor report created: C:\Users\mokht\OneDrive\Desktop\PowerSentryX\PSX\reports\audit-99fb3751-0fd2-4196-ad21-42505c18eaf5.json
+2026-09-07T18:45:29.3900241Z [INFO] Monitor report created: C:\Users\mokht\OneDrive\Desktop\PowerSentryX\PSX\reports\audit-f24afcd4-bea9-4e1f-ab3c-ba9e2eacc353.json
+2026-09-07T18:46:32.5255704Z [INFO] Monitor report created: C:\Users\mokht\OneDrive\Desktop\PowerSentryX\PSX\reports\audit-93099055-08ff-43e3-91aa-35c3fe184b3a.json
+2026-09-07T18:47:35.3266106Z [INFO] Monitor report created: C:\Users\mokht\OneDrive\Desktop\PowerSentryX\PSX\reports\audit-1def428d-95ba-4b5f-b68a-04746c1091b4.json
